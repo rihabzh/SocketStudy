@@ -53,6 +53,101 @@ Socket programming finds applications in various domains, including web developm
 4.	Networked Games: Online multiplayer games rely on socket programming to facilitate communication between game clients and servers.
 5.	RPC mechanisms: which allow processes to execute code on a remote server, often use socket programming for communication.
 
+## ALGORITHM FOR SERVER PROGRAM:
+
+1.Start the program.
+
+2.Import the socket module.
+
+3.Create a socket using socket.socket().
+
+4.Define a port number for communication.
+
+5.Bind the socket to the IP address (127.0.0.1) and the specified port.
+
+6.Put the socket into listening mode using listen().
+
+7.Wait for a client connection using accept().
+
+8.When a client connects, display the client address.
+
+9.Send a connection message to the client.
+
+10.Close the client connection.
+
+11.Stop the program.
+
+## ALGORITHM FOR CLIENT PROGRAM:
+
+1.Start the program.
+
+2.Import the socket module.
+
+3.Create a socket using socket.socket().
+
+4.Specify the server IP address and port number.
+
+5.Connect to the server using connect().
+
+6.Receive the message sent by the server using recv().
+
+7.Display the received message.
+
+8.Close the socket connection.
+
+9.Stop the program
+
+## PROGRAM :
+
+## SERVER.PY:
+```
+import socket
+
+s = socket.socket()
+print("Socket successfully created")
+
+port = 12345
+s.bind(("127.0.0.1", port))
+print("Socket binded to", port)
+
+s.listen(5)
+print("Socket is listening ...")
+
+c, addr = s.accept()
+print("Got connection from this ", addr)
+c.send("Thank you for connecting ".encode())
+c.close()
+
+```
+## CLIENT.PY:
+```
+
+import socket             
+
+ 
+s = socket.socket()         
+
+
+port = 12345                
+
+ 
+s.connect(('127.0.0.1', port)) 
+
+
+print (s.recv(1024).decode())
+ 
+s.close()
+```
+## OUTPUT:
+# SERVER SIDE:
+
+<img width="1258" height="155" alt="Screenshot 2026-01-31 110843" src="https://github.com/user-attachments/assets/b0c19fca-56c6-44a4-a796-81098200963d" />
+
+#  CLINET SIDE:
+
+<img width="733" height="118" alt="image" src="https://github.com/user-attachments/assets/75cae979-d680-4cf3-b402-30fc303a6262" />
+
+
 
 ## Result:
 Thus the study of Socket Programming Completed Successfully
